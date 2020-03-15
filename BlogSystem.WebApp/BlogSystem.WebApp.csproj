@@ -158,6 +158,9 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manager\Common\PageConfig.cs" />
+    <Compile Include="Areas\Manager\Controllers\RolesManagerController.cs" />
+    <Compile Include="Areas\Manager\Data\Roles\RolesListViewModel.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,6 +191,7 @@
     <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
     <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <Content Include="Areas\Manager\Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Areas\Manager\Views\RolesManager\List.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -198,8 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Manager\Controllers\" />
-    <Folder Include="Areas\Manager\Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>

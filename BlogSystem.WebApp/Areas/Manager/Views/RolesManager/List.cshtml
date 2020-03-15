@@ -1,0 +1,92 @@
+﻿@using System.Web.UI.WebControls
+@model List<BlogSystem.WebApp.Areas.Manager.Data.Roles.RolesListViewModel>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
+    string search = ViewBag.Search;
+    int total = ViewBag.Total;
+}
+
+<h2>权限管理列表</h2>
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("List", "RolesManager", FormMethod.Get, new { @class = "input-group" }))
+        {
+            @Html.TextBox("Search", search, new { @class = "form-control" })
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <i class="lnr lnr-magnifier"></i>
+                    搜索
+                </button>
+            </span>
+        }
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("新增权限", "Add", "RolesManager", new { @class = "btn btn-success" })
+    </div>
+
+</div>
+<div class="row" style="margin-top: 15px;">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3>权限管理列表</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>权限名称</th>
+                            <th>修改时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*<tr>
+                                <td>1</td>
+                                <td>超级管理员</td>
+                                <td>2020-03-15</td>
+                                <td>
+                                    @Html.ActionLink("修改", "Edit", "RolesManager", new { }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("删除", "Delete", "RolesManager", new { }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>*@
+                        @for (var i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td>@Model[i].Title</td>
+                                <td>@Model[i].UpdateTime</td>
+                                <td>
+                                    @Html.ActionLink("修改", "Edit", "RolesManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("删除", "Delete", "RolesManager", new { Model[i].Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <ul class="pagination" style="margin-left: 15px;">
+        @for (var page = 1; page <= total; page++)
+        {
+            if (page == ViewBag.PageIndex)
+            {
+                <li class="active">
+                    <a href="@Url.Action("List","RolesManager",new{ page = page})">@page</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="@Url.Action("List","RolesManager",new{ page = page})">@page</a>
+                </li>
+            }
+        }
+    </ul>
+</div>
