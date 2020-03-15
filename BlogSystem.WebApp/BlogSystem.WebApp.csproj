@@ -103,12 +103,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\assets\css\bootstrap.css" />
+    <Content Include="Areas\Manager\assets\css\bootstrap.min.css" />
+    <Content Include="Areas\Manager\assets\css\demo.css" />
+    <Content Include="Areas\Manager\assets\css\main.css" />
+    <Content Include="Areas\Manager\assets\img\apple-icon.png" />
+    <Content Include="Areas\Manager\assets\img\favicon.png" />
+    <Content Include="Areas\Manager\assets\img\login-bg.jpg" />
+    <Content Include="Areas\Manager\assets\img\logo-dark.png" />
+    <Content Include="Areas\Manager\assets\img\profile-bg.png" />
+    <Content Include="Areas\Manager\assets\img\user-medium.png" />
+    <Content Include="Areas\Manager\assets\img\user.png" />
+    <Content Include="Areas\Manager\assets\img\user1.png" />
+    <Content Include="Areas\Manager\assets\img\user2.png" />
+    <Content Include="Areas\Manager\assets\img\user3.png" />
+    <Content Include="Areas\Manager\assets\img\user4.png" />
+    <Content Include="Areas\Manager\assets\img\user5.png" />
+    <Content Include="Areas\Manager\assets\scripts\klorofil-common.js" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\js\npm.js" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\css\chartist-custom.css" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\css\chartist.css" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\css\chartist.min.css" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\js\chartist.js" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\js\chartist.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Manager\assets\vendor\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery.easy-pie-chart\angular.easypiechart.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery.easy-pie-chart\angular.easypiechart.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery.easy-pie-chart\easypiechart.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery.easy-pie-chart\easypiechart.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery.easy-pie-chart\jquery.easypiechart.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery.easy-pie-chart\jquery.easypiechart.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery\jquery.js" />
+    <Content Include="Areas\Manager\assets\vendor\jquery\jquery.min.js" />
+    <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.svg" />
+    <Content Include="Areas\Manager\assets\vendor\linearicons\style.css" />
+    <Content Include="Areas\Manager\assets\vendor\toastr\toastr.css" />
+    <Content Include="Areas\Manager\assets\vendor\toastr\toastr.js" />
+    <Content Include="Areas\Manager\assets\vendor\toastr\toastr.min.css" />
+    <Content Include="Areas\Manager\assets\vendor\toastr\toastr.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -116,6 +166,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\assets\css\demo.css.map" />
+    <Content Include="Areas\Manager\assets\css\main.css.map" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Manager\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\css\chartist-custom.css.map" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\map\chartist.css.map" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\map\chartist.min.js.map" />
+    <Content Include="Areas\Manager\assets\vendor\chartist\scss\chartist.scss" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Manager\assets\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Manager\assets\vendor\jquery\jquery.min.map" />
+    <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.eot" />
+    <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.ttf" />
+    <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
+    <Content Include="Areas\Manager\assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutPage1.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -126,6 +198,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manager\Controllers\" />
+    <Folder Include="Areas\Manager\Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
