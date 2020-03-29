@@ -9,6 +9,7 @@ using BlogSystem.WebApp.Areas.Manager.Common;
 using BlogSystem.WebApp.Areas.Manager.Data.Roles;
 using log4net;
 using log4net.Core;
+using PagedList;
 
 namespace BlogSystem.WebApp.Areas.Manager.Controllers
 {
@@ -29,12 +30,11 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             ILog log = LogManager.GetLogger(typeof(RolesManagerController));
             //(1) 得到我们数据的总条数
             var count = await _rolesBll.GetRolesCountAsync(Search);
-            //(2) 设置总页数
-            var total = PageConfig.GetTotalPage(count);
+            
             //(3) 设置每页要展示条数
             var pageSize = PageConfig.GetPageSize();
 
-            var data = await _rolesBll.GetRolesListByPageAsync(pageSize, page, Search, false);
+            var data = await _rolesBll.GetRolesList(Search,false);
             List<RolesListViewModel> list = new List<RolesListViewModel>();
 
             foreach (var item in data)
@@ -49,10 +49,47 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             }
 
             ViewBag.Search = Search;
-            ViewBag.Total = total;
             ViewBag.PageIndex = page;
+            IPagedList<RolesListViewModel> pages = list.ToPagedList(page, PageConfig.GetPageSize());
+            return View(pages);
+        }
 
-            return View(list);
+
+        [HttpGet]
+        public ActionResult Add() 
+        {
+            return View(new AddRolesViewModel());
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Add(AddRolesViewModel roles) 
+        {
+            if (ModelState.IsValid) 
+            {
+                //验证合法,我们在这进行执行新增操作
+                int rs = await _rolesBll.AddRolesAsync(roles.Title);
+                if (rs > 0)
+                {
+                    Response.Write("<script>alert('新增成功');location.href='../../Manager/RolesManager/List'</script>");
+                }
+                else 
+                {
+                    return View(roles);
+                }
+            }
+            return View(roles);
+        }
+
+
+        /// <summary>
+        /// 做唯一验证的
+        /// </summary>
+        /// <param name="Title"></param>
+        /// <returns></returns>
+        public async Task<JsonResult> CheckRolesTitle(string Title) 
+        {
+            var rs = await _rolesBll.IsExistsAsync(Title);
+            return Json(!rs, JsonRequestBehavior.AllowGet);
         }
     }
 }

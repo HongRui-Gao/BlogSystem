@@ -1,12 +1,12 @@
-﻿@using System.Web.UI.WebControls
-@model List<BlogSystem.WebApp.Areas.Manager.Data.Roles.RolesListViewModel>
+﻿
+@model PagedList.IPagedList<BlogSystem.WebApp.Areas.Manager.Data.Roles.RolesListViewModel>
 @{
     ViewBag.Title = "List";
     Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
     string search = ViewBag.Search;
-    int total = ViewBag.Total;
+    
 }
-
+@using PagedList.Mvc
 <h2>权限管理列表</h2>
 <div class="row">
     <div class="col-md-6">
@@ -36,15 +36,15 @@
             <div class="panel-body">
                 <table class="table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th>序号</th>
-                            <th>权限名称</th>
-                            <th>修改时间</th>
-                            <th>操作</th>
-                        </tr>
+                    <tr>
+                        <th>序号</th>
+                        <th>权限名称</th>
+                        <th>修改时间</th>
+                        <th>操作</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @*<tr>
+                    @*<tr>
                                 <td>1</td>
                                 <td>超级管理员</td>
                                 <td>2020-03-15</td>
@@ -53,25 +53,30 @@
                                     @Html.ActionLink("删除", "Delete", "RolesManager", new { }, new { @class = "btn btn-danger" })
                                 </td>
                             </tr>*@
-                        @for (var i = 0; i < Model.Count; i++)
-                        {
-                            <tr>
-                                <td>@(i + 1)</td>
-                                <td>@Model[i].Title</td>
-                                <td>@Model[i].UpdateTime</td>
-                                <td>
-                                    @Html.ActionLink("修改", "Edit", "RolesManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
-                                    @Html.ActionLink("删除", "Delete", "RolesManager", new { Model[i].Id }, new { @class = "btn btn-danger" })
-                                </td>
-                            </tr>
-                        }
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model[i].Title</td>
+                            <td>@Model[i].UpdateTime</td>
+                            <td>
+                                @Html.ActionLink("修改", "Edit", "RolesManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("删除", "Delete", "RolesManager", new { Model[i].Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<div class="row">
+<div class="pagination">
+    @Html.PagedListPager(Model,page =>Url.Action("List",new { page }))
+</div>
+
+
+@*<div class="row">
     <ul class="pagination" style="margin-left: 15px;">
         @for (var page = 1; page <= total; page++)
         {
@@ -89,4 +94,4 @@
             }
         }
     </ul>
-</div>
+</div>*@

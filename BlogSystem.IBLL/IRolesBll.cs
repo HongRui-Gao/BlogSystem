@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using BlogSystem.Dtos;
 
@@ -20,5 +21,7 @@ namespace BlogSystem.IBLL
         Task<List<RolesDto>> GetRolesListByPageAsync(int pageSize, int pageIndex, string title, bool isAsc);
 
         Task<RolesDto> GetRolesAsync(Guid id);
+
+        Task<List<RolesDto>> GetRolesList(string title, bool isAsc); //这个是带有分页插件的查询
     }
 }

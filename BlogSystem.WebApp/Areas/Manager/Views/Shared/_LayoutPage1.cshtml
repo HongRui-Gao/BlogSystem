@@ -20,12 +20,8 @@
     <!-- ICONS -->
     <link rel="apple-touch-icon" sizes="76x76" href="~/Areas/Manager/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="~/Areas/Manager/assets/img/favicon.png">
-    <style>
-        .search {
-            width: 200px;
-        }
-    </style> 
-    </head>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
 <body>
     <div id="wrapper">
         <!-- NAVBAR -->
@@ -143,6 +139,6 @@
     <script src="~/Areas/Manager/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
     <script src="~/Areas/Manager/assets/vendor/chartist/js/chartist.min.js"></script>
     <script src="~/Areas/Manager/assets/scripts/klorofil-common.js"></script>
-
+    @RenderSection("script",false)
 </body>
 </html>
