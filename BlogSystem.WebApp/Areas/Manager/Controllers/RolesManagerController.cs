@@ -91,5 +91,46 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             var rs = await _rolesBll.IsExistsAsync(Title);
             return Json(!rs, JsonRequestBehavior.AllowGet);
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Edit(Guid id)
+        {
+            var data = await _rolesBll.GetRolesAsync(id);
+            return View(new EditRolesViewModel()
+            {
+                Id = data.Id,
+                Title = data.Title
+            });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(EditRolesViewModel roles)
+        {
+            if (ModelState.IsValid)
+            {
+                var rs = await _rolesBll.EditRolesAsync(roles.Id, roles.Title);
+                if (rs > 0)
+                {
+                    Response.Write("<script>alert('编辑成功');location.href='../../../Manager/RolesManager/List'</script>");
+                }
+            }
+
+            return View(roles);
+        }
+
+        [HttpGet]
+        public async Task Delete(Guid id)
+        {
+            var rs = await _rolesBll.DeleteRolesAsync(id);
+            if (rs > 0)
+            {
+                Response.Write("<script>alert('删除成功');location.href='../../../Manager/RolesManager/List'</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('删除失败');location.href='../../../Manager/RolesManager/List'</script>");
+            }
+        }
     }
 }

@@ -44,15 +44,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @*<tr>
-                                <td>1</td>
-                                <td>超级管理员</td>
-                                <td>2020-03-15</td>
-                                <td>
-                                    @Html.ActionLink("修改", "Edit", "RolesManager", new { }, new { @class = "btn btn-warning" })
-                                    @Html.ActionLink("删除", "Delete", "RolesManager", new { }, new { @class = "btn btn-danger" })
-                                </td>
-                            </tr>*@
                     @for (var i = 0; i < Model.Count; i++)
                     {
                         <tr>
@@ -76,22 +67,4 @@
 </div>
 
 
-@*<div class="row">
-    <ul class="pagination" style="margin-left: 15px;">
-        @for (var page = 1; page <= total; page++)
-        {
-            if (page == ViewBag.PageIndex)
-            {
-                <li class="active">
-                    <a href="@Url.Action("List","RolesManager",new{ page = page})">@page</a>
-                </li>
-            }
-            else
-            {
-                <li>
-                    <a href="@Url.Action("List","RolesManager",new{ page = page})">@page</a>
-                </li>
-            }
-        }
-    </ul>
-</div>*@
+
