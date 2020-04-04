@@ -29,7 +29,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             //注册日志
             ILog log = LogManager.GetLogger(typeof(RolesManagerController));
             //(1) 得到我们数据的总条数
-            var count = await _rolesBll.GetRolesCountAsync(Search);
+           // var count = await _rolesBll.GetRolesCountAsync(Search);
             
             //(3) 设置每页要展示条数
             var pageSize = PageConfig.GetPageSize();

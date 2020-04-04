@@ -1,0 +1,76 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<BlogSystem.WebApp.Areas.Manager.Data.Admins.AdminsListViewModel>
+@{
+    ViewBag.Title = "管理员列表";
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
+    string search = ViewBag.Search;
+}
+
+<h2>管理员列表</h2>
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("List", "AdminsManager", FormMethod.Get, new { @class = "input-group" }))
+        {
+            @Html.TextBox("Search", search, new { @class = "form-control" })
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <i class="lnr lnr-magnifier"></i>
+                    搜索
+                </button>
+            </span>
+        }
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("新增管理员", "Add", "AdminsManager", new { @class = "btn btn-success" })
+    </div>
+
+</div>
+<div class="row" style="margin-top: 15px;">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3>权限管理列表</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>账号</th>
+                            <th>昵称</th>
+                            <th>头像</th>
+                            <th>权限名称</th>
+                            <th>修改时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.Count; i++)
+                        {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model[i].Email</td>
+                            <td>@Model[i].NickName</td>
+                            <td>
+                                <img src="~/Upload/Admins/@Model[i].Photo"/>
+                            </td>
+                            <td>@Model[i].RolesTitle</td>
+                            <td>@Model[i].UpdateTime</td>
+                            <td>
+                                @Html.ActionLink("修改", "Edit", "AdminsManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("删除", "Delete", "AdminsManager", new { Model[i].Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+</div>
+
+

@@ -9,14 +9,10 @@ namespace BlogSystem.Dtos
         public string Email { get; set; }
 
         public string Password { get; set; }
-
-
         public string NickName { get; set; }
-
-  
         public string Photo { get; set; }
+        public string Images { get; set; }
 
-        
         public Guid RolesId { get; set; }
     }
 }

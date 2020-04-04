@@ -49,6 +49,9 @@
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="CodeCarvings.Piczard, Version=1.2.3.0, Culture=neutral, PublicKeyToken=88d00d4422733d60, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodeCarvings.Piczard.1.2.3.3\lib\CodeCarvings.Piczard.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -166,7 +169,10 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manager\Common\PageConfig.cs" />
+    <Compile Include="Areas\Manager\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\RolesManagerController.cs" />
+    <Compile Include="Areas\Manager\Data\Admins\AddAdminsViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Admins\AdminsListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\AddRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\EditRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\RolesListViewModel.cs" />
@@ -203,6 +209,8 @@
     <Content Include="Areas\Manager\Views\RolesManager\List.cshtml" />
     <Content Include="Areas\Manager\Views\RolesManager\Add.cshtml" />
     <Content Include="Areas\Manager\Views\RolesManager\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\AdminsManager\List.cshtml" />
+    <Content Include="Areas\Manager\Views\AdminsManager\Add.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -215,6 +223,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Upload\Admins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogSystem.BLL\BlogSystem.BLL.csproj">

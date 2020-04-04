@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202003150123324_Initial.designer.cs">
       <DependentUpon>202003150123324_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004040519323_AddAdminsProperty_Images.cs" />
+    <Compile Include="Migrations\202004040519323_AddAdminsProperty_Images.designer.cs">
+      <DependentUpon>202004040519323_AddAdminsProperty_Images.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003150123324_Initial.resx">
       <DependentUpon>202003150123324_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040519323_AddAdminsProperty_Images.resx">
+      <DependentUpon>202004040519323_AddAdminsProperty_Images.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

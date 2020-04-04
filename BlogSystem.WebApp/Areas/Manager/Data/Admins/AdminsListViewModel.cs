@@ -2,10 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BlogSystem.Models
+namespace BlogSystem.WebApp.Areas.Manager.Data.Admins
 {
-    public class Admins : BaseEntity
+    public class AdminsListViewModel
     {
+        [Key]
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "{0}不能为空")]
         [StringLength(255)]
         [Column(TypeName = "varchar")]
@@ -34,13 +37,10 @@ namespace BlogSystem.Models
         [Required(ErrorMessage = "{0}不能为空")]
         [StringLength(255)]
         [Column(TypeName = "varchar")]
-        [Display(Name = "小头像")]
-        public string Images { get; set; }
+        [Display(Name = "权限名称")]
+        public string RolesTitle { get; set; }
 
-        [Required(ErrorMessage = "{0}不能为空")]
-        [Display(Name = "权限编号")]
-        [ForeignKey(nameof(Roles))]
-        public Guid RolesId { get; set; }
-        public Roles Roles { get; set; }
+
+        public DateTime UpdateTime { get; set; }
     }
 }
