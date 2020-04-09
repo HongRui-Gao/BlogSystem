@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using BlogSystem.Models;
 
 namespace BlogSystem.DAL
 {
-    public class BaseDAL<T> : IBaseDAL<T> where T:BaseEntity,new()
+    public class BaseDAL<T> : IBaseDAL<T> where T : BaseEntity, new()
     {
         //1. 需要先找到Model层数据库上下文
         private BlogSystemContext _db;
@@ -31,8 +32,10 @@ namespace BlogSystem.DAL
 
         public async Task<int> EditAsync(T model)
         {
-            _db.Entry<T>(model).State = EntityState.Modified;
-            return await _db.SaveChangesAsync();
+          
+                _db.Entry<T>(model).State = EntityState.Modified;
+                return await _db.SaveChangesAsync();
+          
         }
 
         public async Task<int> DeleteAsync(T model)

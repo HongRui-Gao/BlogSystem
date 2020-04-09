@@ -1,0 +1,63 @@
+﻿@model BlogSystem.WebApp.Areas.Manager.Data.Admins.EditAdminsViewModel
+@{
+    ViewBag.Title = "编辑管理员信息";
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">编辑管理员信息</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Edit", "AdminsManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        @Html.HiddenFor(r => r.Id)
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">电子邮箱:</label>
+                        @Html.TextBoxFor(r => r.Email, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Email")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">密码:</label>
+                        @Html.TextBoxFor(r => r.Password, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Password")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="NickName">昵称:</label>
+                        @Html.TextBoxFor(r => r.NickName, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("NickName")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MyPhoto">头像:</label>
+                        <img src="~/Upload/Admins/@Model.Photo"/>
+                        <input type="file" name="MyPhoto" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="RolesId">权限:</label>
+                        @Html.DropDownList("RolesId", (SelectList)ViewBag.RolesList, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("RolesId")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">保存</button>
+                        <button class="btn btn-danger" type="reset">重置</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="https://cdn.bootcss.com/jquery-validate/1.19.1/jquery.validate.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js"></script>
+}
+

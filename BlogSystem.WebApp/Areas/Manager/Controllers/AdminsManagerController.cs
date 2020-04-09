@@ -65,7 +65,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 //获取表单传递过来的数据,并且实现新增功能
                 var file = Request.Files["MyPhoto"];
 
-                var names = UploadFiles(file); //得到上传图片的名称
+                var names = UploadFiles(file, @"../../Upload/Admins/"); //得到上传图片的名称
 
                 var rs = await _admins_bll.AddAdminsAsync(model.Email, model.Password, model.NickName, names[0],
                     names[1], model.RolesId);
@@ -104,7 +104,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
 
 
 
-        public string[] UploadFiles(HttpPostedFileBase file)
+        public string[] UploadFiles(HttpPostedFileBase file,string url)
         {
             if (!file.FileName.Equals(""))
             {
@@ -112,7 +112,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 var newName = DateTime.Now.ToString("yyyyMMddHHmmss") 
                                     + r.Next(1000, 10000) 
                                     + file.FileName.Substring(file.FileName.LastIndexOf('.'));
-                var path = Server.MapPath(@"../../Upload/Admins/" + newName);
+                var path = Server.MapPath(url + newName);
 
                 file.SaveAs(path); //保存的正常大小的图片
 
@@ -122,7 +122,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 var sm_name = newName.Substring(0, newName.LastIndexOf('.'))
                                      + "_sm"
                                      + newName.Substring(newName.LastIndexOf('.'));
-                var sm_path = Server.MapPath(@"../../Upload/Admins/" + sm_name);
+                var sm_path = Server.MapPath(url + sm_name);
                 job.SaveProcessedImageToFileSystem(path,sm_path);
                 return new string[]{newName,sm_name};
             }
@@ -135,6 +135,75 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
         {
             var rs = await _admins_bll.IsExists(Email);
             return Json(!rs, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        [HttpGet]
+
+        public async Task<ActionResult> Edit(Guid id)
+        {
+            var data = await  _admins_bll.GetAdminsById(id);
+
+            await BindRoles(data.RolesId);
+
+            return View(new EditAdminsViewModel()
+            {
+                Id = data.Id,
+                Email = data.Email,
+                Password = data.Password,
+                NickName = data.NickName,
+                Photo = data.Photo,
+                RolesId = data.RolesId,
+                Images = data.Images
+            });
+
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(EditAdminsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var file = Request.Files["MyPhoto"];
+                var rs = -1;
+                if (file.FileName != "" && file.FileName != null) //这个是我们修改头像时候的
+                {
+                    var names = UploadFiles(file, @"../../../Upload/Admins/");
+                    rs = await _admins_bll.EditAdminsAsync(model.Id, model.Email, model.Password, model.NickName, names[0], names[1], model.RolesId);
+                }
+                else
+                {
+                    rs = await _admins_bll.EditAdminsAsync(model.Id, model.Email, model.Password, model.NickName,
+                        model.Photo, model.Images, model.RolesId);
+                }
+
+                if (rs > 0)
+                {
+                    return Content("<script>alert('修改成功');location.href='../../../Manager/AdminsManager/List'</script>");
+                }
+            }
+
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            var rs = await _admins_bll.DeleteAdminsAsync(id);
+            if (rs > 0)
+            {
+                return Content("<script>alert('删除成功');location.href='../../../Manager/AdminsManager/List'</script>");
+            }
+            else if (rs == -2)
+            {
+                return Content("<script>alert('数据传输丢失,请稍后再试');location.href='../../../Manager/AdminsManager/List'</script>");
+            }
+            else
+            {
+                return Content("<script>alert('删除失败');location.href='../../../Manager/AdminsManager/List'</script>");
+            }
         }
     }
 }

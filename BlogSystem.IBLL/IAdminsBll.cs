@@ -9,7 +9,7 @@ namespace BlogSystem.IBLL
     {
         Task<int> AddAdminsAsync(string email, string password, string nickname, string photo, string images, Guid rolesId);
 
-        Task<int> EditAdminsAsync(Guid id, string password, string nickname, string photo, string images, Guid rolesId);
+        Task<int> EditAdminsAsync(Guid id, string email, string password, string nickname, string photo, string images, Guid rolesId);
 
         Task<int> DeleteAdminsAsync(Guid id);
 
@@ -21,7 +21,7 @@ namespace BlogSystem.IBLL
 
         Task<bool> IsExists(string email);
 
-        Task<List<AdminsDto>> GetAdminsByEmail(string email);
+        Task<AdminsDto> GetAdminsByEmail(string email);
 
         Task<AdminsDto> GetAdminsById(Guid id);
 
