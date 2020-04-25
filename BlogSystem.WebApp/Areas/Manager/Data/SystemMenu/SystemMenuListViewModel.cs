@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BlogSystem.Dtos
+namespace BlogSystem.WebApp.Areas.Manager.Data.SystemMenu
 {
-    public class SystemMenuDto
+    public class SystemMenuListViewModel
     {
         public Guid Id { get; set; }
         public DateTime UpdateTime { get; set; }
@@ -14,7 +14,6 @@ namespace BlogSystem.Dtos
 
         public string Icon { get; set; }
 
-    
-        public Guid ParentId { get; set; }
+        public string ParentTitle { get; set; }
     }
 }

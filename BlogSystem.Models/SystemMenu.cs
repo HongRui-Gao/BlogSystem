@@ -18,13 +18,12 @@ namespace BlogSystem.Models
         [Display(Name = "系统菜单连接")]
         public string Link { get; set; }
 
-        [Required(ErrorMessage = "{0}不能为空")]
         [StringLength(255)]
         [Column(TypeName = "varchar")]
         [Display(Name = "系统菜单图标")]
         public string Icon { get; set; }
 
-        [Required(ErrorMessage = "{0}不能为空")]
+        
         [Display(Name = "系统菜单等级")]
         public Guid ParentId { get; set; }
     }

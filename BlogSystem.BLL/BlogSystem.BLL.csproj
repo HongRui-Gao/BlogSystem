@@ -50,6 +50,7 @@
     <Compile Include="AdminsBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesBll.cs" />
+    <Compile Include="SystemMenuBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogSystem.DAL\BlogSystem.DAL.csproj">
