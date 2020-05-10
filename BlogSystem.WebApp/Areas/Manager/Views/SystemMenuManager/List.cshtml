@@ -53,10 +53,10 @@
                                 <td>@Model[i].Title</td>
                                 <td>@Model[i].Link</td>
                                 <td>
-                                    <i></i>
+                                    <i class="lnr @Model[i].Icon"></i>
                                 </td>
                                 <td>@Model[i].ParentTitle</td>
-                                <td>@Model[i].UpdateTime</td>
+                                <td>@Model[i].UpdateTime.ToString("yyyy-MM-dd")</td>
                                 <td>
                                     @Html.ActionLink("修改", "Edit", "SystemMenuManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
                                     @Html.ActionLink("删除", "Delete", "SystemMenuManager", new { Model[i].Id }, new { @class = "btn btn-danger" })

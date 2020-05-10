@@ -178,6 +178,8 @@
     <Compile Include="Areas\Manager\Data\Roles\AddRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\EditRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\RolesListViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\SystemMenu\AddSystemMenuViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\SystemMenu\EditSystemMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\SystemMenuListViewModel.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,6 +218,8 @@
     <Content Include="Areas\Manager\Views\AdminsManager\Add.cshtml" />
     <Content Include="Areas\Manager\Views\AdminsManager\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\SystemMenuManager\List.cshtml" />
+    <Content Include="Areas\Manager\Views\SystemMenuManager\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\SystemMenuManager\Edit.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

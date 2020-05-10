@@ -1,0 +1,145 @@
+﻿@using BlogSystem.Dtos
+@model BlogSystem.WebApp.Areas.Manager.Data.SystemMenu.AddSystemMenuViewModel
+@{
+    ViewBag.Title = "新增系统菜单";
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
+
+    SelectList firstMenu = ViewBag.FirstMenu == null ? new SelectList(new List<SystemMenuDto>()) : (SelectList) ViewBag.FirstMenu;
+    SelectList secondMenu = ViewBag.SecondMenu == null ? new SelectList(new List<SystemMenuDto>()) : (SelectList)ViewBag.SecondMenu;
+
+}
+@section style
+{
+    <style>
+        .chooseIco { list-style: none; margin: 5px 0px; font-size: 14px;}
+        .chooseIco > li > span { display: inline-block; padding-left: 5px;}
+    </style>
+}
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增系统菜单</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Add", "SystemMenuManager", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label for="Title">菜单名称</label>
+                        @Html.TextBoxFor(r => r.Title, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Title")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Title">菜单连接</label>
+                        @Html.TextBoxFor(r => r.Link, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Link")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">菜单等级</label>
+                        <select id="level" name="level" class="form-control">
+                            <option value="0">一级菜单</option>
+                            <option value="1">二级菜单</option>
+                            <option value="2">三级菜单</option>
+                        </select>
+                        @Html.DropDownList("level", firstMenu, new { @class = "form-control", style = "display: none;", id = "ParentMenu" })
+                        @Html.DropDownList("level", secondMenu, new { @class = "form-control", style = "display: none;", id = "SonMenu" })
+
+                    </div>
+                    <div id="ChooseIcon" class="form-group">
+                        <label for="Icon">菜单图标</label>
+                        <div class="form-inline">
+                            @Html.TextBoxFor(r => r.Icon, new { @class = "form-control",@readonly="true" })
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#IconModal">点击选择图标</button>
+                        </div>
+
+                        <div class="modal fade" id="IconModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">系统菜单图标</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="menuIcon" class="row">
+                                            <ul class="chooseIco">
+                                                <li class="col-md-3"><i class="lnr lnr-home"></i><span>lnr-home</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-apartment"></i><span>lnr-apartment</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-drop"></i><span>lnr-drop</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-cloud"></i><span>lnr-cloud</span></li>
+
+                                                <li class="col-md-3"><i class="lnr lnr-database"></i><span>lnr-database</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-lock"></i><span>lnr-lock</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-cog"></i><span>lnr-cog</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-envelope"></i><span>lnr-envelope</span></li>
+
+                                                <li class="col-md-3"><i class="lnr lnr-paperclip"></i><span>lnr-paperclip</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-inbox"></i><span>lnr-inbox</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-user"></i><span>lnr-user</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-map"></i><span>lnr-map</span></li>
+
+                                                <li class="col-md-3"><i class="lnr lnr-screen"></i><span>lnr-screen</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-laptop"></i><span>lnr-laptop</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-bubble"></i><span>lnr-bubble</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-layers"></i><span>lnr-layers</span></li>
+
+                                                <li class="col-md-3"><i class="lnr lnr-earth"></i><span>lnr-earth</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-pie-chart"></i><span>lnr-pie-chart</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-chart-bars"></i><span>lnr-chart-bars</span></li>
+                                                <li class="col-md-3"><i class="lnr lnr-bookmark"></i><span>lnr-bookmark</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">保存</button>
+                        <button class="btn btn-danger" type="reset">重置</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="https://cdn.bootcss.com/jquery-validate/1.19.1/jquery.validate.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js"></script>
+    <script>
+
+        $(".chooseIco>li").click(function() {
+            var rs = $(this).text();
+            $("#Icon").val(rs);
+        })
+
+        $("#level").change(function() {
+            if ($(this).val() == "0") {
+                $("#ChooseIcon").show();
+                $("#ParentMenu").hide();
+                $("#SonMenu").hide();
+            } else if ($(this).val() == "1") {
+
+                $("#ChooseIcon").hide();
+                $("#ParentMenu").show();
+                $("#SonMenu").hide();
+
+            } else if ($(this).val() == "2"){
+                $("#ChooseIcon").hide();
+                $("#ParentMenu").show();
+                $("#SonMenu").show();
+            }
+
+        });
+
+
+    </script>
+}
+
