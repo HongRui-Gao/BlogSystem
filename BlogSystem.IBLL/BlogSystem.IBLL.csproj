@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdminsBll.cs" />
+    <Compile Include="IAdminsPermissionBll.cs" />
     <Compile Include="IRolesBll.cs" />
     <Compile Include="ISystemMenuBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
