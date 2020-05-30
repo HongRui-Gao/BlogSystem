@@ -171,6 +171,8 @@
     <Compile Include="Areas\Manager\Common\PageConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsPermissionManagerController.cs" />
+    <Compile Include="Areas\Manager\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Manager\Controllers\MainController.cs" />
     <Compile Include="Areas\Manager\Controllers\RolesManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\SystemMenuManagerController.cs" />
     <Compile Include="Areas\Manager\Data\AdminsPermisson\AddAdminsPermissionViewModel.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Areas\Manager\Data\Admins\AddAdminsViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\AdminsListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\EditAdminsViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Login\LoginViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\AddRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\EditRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\RolesListViewModel.cs" />
@@ -185,6 +188,7 @@
     <Compile Include="Areas\Manager\Data\SystemMenu\EditSystemMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\SystemMenuListViewModel.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Filter\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +228,8 @@
     <Content Include="Areas\Manager\Views\SystemMenuManager\Add.cshtml" />
     <Content Include="Areas\Manager\Views\SystemMenuManager\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\AdminsPermissionManager\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Login\SignIn.cshtml" />
+    <Content Include="Areas\Manager\Views\Main\Welcome.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

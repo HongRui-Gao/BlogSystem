@@ -8,9 +8,11 @@ using BlogSystem.IBLL;
 using BlogSystem.WebApp.Areas.Manager.Data.AdminsPermisson;
 using BlogSystem.WebApp.Areas.Manager.Data.Roles;
 using BlogSystem.WebApp.Areas.Manager.Data.SystemMenu;
+using BlogSystem.WebApp.Filter;
 
 namespace BlogSystem.WebApp.Areas.Manager.Controllers
 {
+    [AdminAuthorize]
     public class AdminsPermissionManagerController : Controller
     {
         private IRolesBll _rolesSvc;

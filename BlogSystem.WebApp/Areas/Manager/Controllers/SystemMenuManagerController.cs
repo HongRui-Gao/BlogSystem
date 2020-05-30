@@ -7,10 +7,12 @@ using System.Web.Mvc;
 using BlogSystem.IBLL;
 using BlogSystem.WebApp.Areas.Manager.Common;
 using BlogSystem.WebApp.Areas.Manager.Data.SystemMenu;
+using BlogSystem.WebApp.Filter;
 using PagedList;
 
 namespace BlogSystem.WebApp.Areas.Manager.Controllers
 {
+    [AdminAuthorize]
     public class SystemMenuManagerController : Controller
     {
         private ISystemMenuBll _bll;

@@ -7,11 +7,13 @@ using System.Web.Mvc;
 using BlogSystem.IBLL;
 using BlogSystem.WebApp.Areas.Manager.Common;
 using BlogSystem.WebApp.Areas.Manager.Data.Admins;
+using BlogSystem.WebApp.Filter;
 using CodeCarvings.Piczard;
 using PagedList;
 
 namespace BlogSystem.WebApp.Areas.Manager.Controllers
 {
+    [AdminAuthorize]
     public class AdminsManagerController : Controller
     {
         private IAdminsBll _admins_bll;

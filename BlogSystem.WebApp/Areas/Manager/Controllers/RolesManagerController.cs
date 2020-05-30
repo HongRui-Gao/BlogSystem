@@ -7,12 +7,14 @@ using System.Web.Mvc;
 using BlogSystem.IBLL;
 using BlogSystem.WebApp.Areas.Manager.Common;
 using BlogSystem.WebApp.Areas.Manager.Data.Roles;
+using BlogSystem.WebApp.Filter;
 using log4net;
 using log4net.Core;
 using PagedList;
 
 namespace BlogSystem.WebApp.Areas.Manager.Controllers
 {
+    [AdminAuthorize]
     public class RolesManagerController : Controller
     {
         private IRolesBll _rolesBll;
