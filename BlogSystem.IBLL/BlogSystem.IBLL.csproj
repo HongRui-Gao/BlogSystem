@@ -45,6 +45,7 @@
     <Compile Include="IAdminsPermissionBll.cs" />
     <Compile Include="IRolesBll.cs" />
     <Compile Include="ISystemMenuBll.cs" />
+    <Compile Include="IWebMenuBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

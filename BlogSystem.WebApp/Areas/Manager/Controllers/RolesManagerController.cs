@@ -18,7 +18,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
     public class RolesManagerController : Controller
     {
         private IRolesBll _rolesBll;
-
+        MessageBox msg = new MessageBox();
         public RolesManagerController(IRolesBll rolesBll)
         {
             _rolesBll = rolesBll;
@@ -72,7 +72,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 int rs = await _rolesBll.AddRolesAsync(roles.Title);
                 if (rs > 0)
                 {
-                    Response.Write("<script>alert('新增成功');location.href='../../Manager/RolesManager/List'</script>");
+                    return msg.Show("新增成功", Url.Action("List", "RolesManager"));
                 }
                 else 
                 {
@@ -114,7 +114,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 var rs = await _rolesBll.EditRolesAsync(roles.Id, roles.Title);
                 if (rs > 0)
                 {
-                    Response.Write("<script>alert('编辑成功');location.href='../../../Manager/RolesManager/List'</script>");
+                   return msg.Show("编辑成功", Url.Action("List", "RolesManager"));
                 }
             }
 
@@ -122,16 +122,16 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
         }
 
         [HttpGet]
-        public async Task Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             var rs = await _rolesBll.DeleteRolesAsync(id);
             if (rs > 0)
             {
-                Response.Write("<script>alert('删除成功');location.href='../../../Manager/RolesManager/List'</script>");
+                return msg.Show("删除成功", Url.Action("List", "RolesManager"));
             }
             else
             {
-                Response.Write("<script>alert('删除失败');location.href='../../../Manager/RolesManager/List'</script>");
+                return msg.Show("删除失败", Url.Action("List", "RolesManager"));
             }
         }
     }

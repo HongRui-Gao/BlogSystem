@@ -26,5 +26,7 @@ namespace BlogSystem.IBLL
         Task<AdminsDto> GetAdminsById(Guid id);
 
         Task<List<AdminsDto>> GetAdminsByRolesId(Guid rid);
+
+       
     }
 }

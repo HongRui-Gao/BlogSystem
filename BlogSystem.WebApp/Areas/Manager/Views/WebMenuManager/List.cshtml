@@ -1,15 +1,15 @@
 ﻿@using PagedList.Mvc
-@model PagedList.IPagedList<BlogSystem.WebApp.Areas.Manager.Data.SystemMenu.SystemMenuListViewModel>
+@model PagedList.IPagedList<BlogSystem.WebApp.Areas.Manager.Data.WebMenu.WebMenuListViewModel>
 @{
-    ViewBag.Title = "系统菜单管理";
+    ViewBag.Title = "网站菜单管理";
     Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
     string search = ViewBag.Search;
 }
 
-<h2>系统菜单管理列表</h2>
+<h2>网站菜单管理列表</h2>
 <div class="row">
     <div class="col-md-6">
-        @using (Html.BeginForm("List", "SystemMenuManager", FormMethod.Get, new { @class = "input-group" }))
+        @using (Html.BeginForm("List", "WebMenuManager", FormMethod.Get, new { @class = "input-group" }))
         {
             @Html.TextBox("Search", search, new { @class = "form-control" })
             <span class="input-group-btn">
@@ -21,7 +21,7 @@
         }
     </div>
     <div class="col-md-3">
-        @Html.ActionLink("新增系统菜单", "Add", "SystemMenuManager", new { @class = "btn btn-success" })
+        @Html.ActionLink("新增网站菜单", "Add", "WebMenuManager", new { @class = "btn btn-success" })
     </div>
 
 </div>
@@ -30,7 +30,7 @@
 
         <div class="panel">
             <div class="panel-heading">
-                <h3>系统菜单管理列表</h3>
+                <h3>网站菜单管理列表</h3>
             </div>
             <div class="panel-body">
                 <table class="table table-striped table-hover">
@@ -58,8 +58,8 @@
                                 <td>@Model[i].ParentTitle</td>
                                 <td>@Model[i].UpdateTime.ToString("yyyy-MM-dd")</td>
                                 <td>
-                                    @Html.ActionLink("修改", "Edit", "SystemMenuManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
-                                    @Html.ActionLink("删除", "Delete", "SystemMenuManager", new { Model[i].Id }, new { @class = "btn btn-danger" })
+                                    @Html.ActionLink("修改", "Edit", "WebMenuManager", new { Model[i].Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("删除", "Delete", "WebMenuManager", new { Model[i].Id }, new { @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }
@@ -72,3 +72,4 @@
 <div class="pagination">
     @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
 </div>
+

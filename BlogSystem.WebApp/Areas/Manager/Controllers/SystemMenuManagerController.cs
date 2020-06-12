@@ -21,7 +21,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
         {
             _bll = bll;
         }
-
+        MessageBox msg = new MessageBox();
         public async Task<ActionResult> List(string Seach="",int page = 1)
         {
             var data = await _bll.GetSystemMenuListByTitle(Seach);
@@ -100,7 +100,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 int rs = await _bll.AddSystemMenuAsync(model.Title, model.Link, model.Icon, model.ParentId);
                 if (rs > 0)
                 {
-                    return Content("<script>alert('新增成功');location.href='../../Manager/SystemMenuManager/List'</script>");
+                   return msg.Show("新增成功", Url.Action("List", "SystemMenuManager"));
                 }
 
             }
@@ -194,7 +194,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                 var res = await _bll.EditSystemMenuAsync(model.Id, model.Title, model.Link, model.Icon, model.ParentId);
                 if (res > 0)
                 {
-                    return RedirectToAction("List", "SystemMenuManager");
+                    return msg.Show("编辑成功", Url.Action("List", "SystemMenuManager"));
                 }
                 else 
                 {
@@ -213,15 +213,16 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             var res = await _bll.DeleteSystemMenuAsync(id);
             if (res == -2)
             {
-                return Content("<script>alert('传输数据丢失,请稍后再试');location.href='" + Url.Action("List", "SystemMenuManager") + "'</script>");
+                return msg.Show("传输数据丢失,请稍后再试", Url.Action("List", "SystemMenuManager"));
+                
             }
             else if (res > 0)
             {
-                return Content("<script>alert('删除成功');location.href='" + Url.Action("List", "SystemMenuManager") + "'</script>");
+                return msg.Show("删除成功", Url.Action("List", "SystemMenuManager"));
             }
             else 
             {
-                return Content("<script>alert('删除失败');location.href='" + Url.Action("List", "SystemMenuManager") + "'</script>");
+                return msg.Show("删除失败", Url.Action("List", "SystemMenuManager"));
             }
             
         }

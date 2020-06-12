@@ -129,6 +129,7 @@
     <Content Include="Areas\Manager\assets\img\user4.png" />
     <Content Include="Areas\Manager\assets\img\user5.png" />
     <Content Include="Areas\Manager\assets\scripts\getLeftMenu.js" />
+    <Content Include="Areas\Manager\assets\scripts\getUserInfo.js" />
     <Content Include="Areas\Manager\assets\scripts\klorofil-common.js" />
     <Content Include="Areas\Manager\assets\vendor\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Areas\Manager\assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manager\Common\MessageBox.cs" />
     <Compile Include="Areas\Manager\Common\PageConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsPermissionManagerController.cs" />
@@ -177,12 +179,14 @@
     <Compile Include="Areas\Manager\Controllers\MainController.cs" />
     <Compile Include="Areas\Manager\Controllers\RolesManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\SystemMenuManagerController.cs" />
+    <Compile Include="Areas\Manager\Controllers\WebMenuManagerController.cs" />
     <Compile Include="Areas\Manager\Data\AdminsPermisson\AddAdminsPermissionViewModel.cs" />
     <Compile Include="Areas\Manager\Data\AdminsPermisson\DeleteAdminsPermissionViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\AddAdminsViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\AdminsListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\EditAdminsViewModel.cs" />
-    <Compile Include="Areas\Manager\Data\LeftMenu\LeftMenuListViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Layout\AdminsInfoViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Layout\LeftMenuListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Login\LoginViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\AddRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\EditRolesViewModel.cs" />
@@ -190,6 +194,9 @@
     <Compile Include="Areas\Manager\Data\SystemMenu\AddSystemMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\EditSystemMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\SystemMenuListViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\WebMenu\AddWebMenuViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\WebMenu\EditWebMenuViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\WebMenu\WebMenuListViewModel.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Filter\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -233,6 +240,9 @@
     <Content Include="Areas\Manager\Views\AdminsPermissionManager\List.cshtml" />
     <Content Include="Areas\Manager\Views\Login\SignIn.cshtml" />
     <Content Include="Areas\Manager\Views\Main\Welcome.cshtml" />
+    <Content Include="Areas\Manager\Views\WebMenuManager\List.cshtml" />
+    <Content Include="Areas\Manager\Views\WebMenuManager\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\WebMenuManager\Edit.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

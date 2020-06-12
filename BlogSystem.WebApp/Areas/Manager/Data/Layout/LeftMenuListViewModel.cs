@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BlogSystem.WebApp.Areas.Manager.Data.LeftMenu
+namespace BlogSystem.WebApp.Areas.Manager.Data.Layout
 {
     public class LeftMenuListViewModel
     {

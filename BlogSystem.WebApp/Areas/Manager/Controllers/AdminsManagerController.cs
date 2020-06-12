@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using BlogSystem.IBLL;
 using BlogSystem.WebApp.Areas.Manager.Common;
 using BlogSystem.WebApp.Areas.Manager.Data.Admins;
@@ -19,6 +20,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
         private IAdminsBll _admins_bll;
         private IRolesBll _roles_bll;
 
+        MessageBox msg = new MessageBox();
         public AdminsManagerController(IAdminsBll admins_bll, IRolesBll roles_bll)
         {
             _admins_bll = admins_bll;
@@ -73,7 +75,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
                     names[1], model.RolesId);
                 if (rs > 0)
                 {
-                    return Content("<script>alert('新增成功');location.href='../../Manager/AdminsManager/List'</script>");
+                    return msg.Show("新增成功", Url.Action("List", "AdminsManager"));
                 }
                 
 
@@ -182,7 +184,7 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
 
                 if (rs > 0)
                 {
-                    return Content("<script>alert('修改成功');location.href='../../../Manager/AdminsManager/List'</script>");
+                    return msg.Show("编辑成功", Url.Action("List", "AdminsManager"));
                 }
             }
 
@@ -196,15 +198,16 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             var rs = await _admins_bll.DeleteAdminsAsync(id);
             if (rs > 0)
             {
-                return Content("<script>alert('删除成功');location.href='../../../Manager/AdminsManager/List'</script>");
+                return msg.Show("删除成功", Url.Action("List", "AdminsManager"));
             }
             else if (rs == -2)
             {
-                return Content("<script>alert('数据传输丢失,请稍后再试');location.href='../../../Manager/AdminsManager/List'</script>");
+                return msg.Show("数据传输丢失,请稍后再试", Url.Action("List", "AdminsManager"));
+               
             }
             else
             {
-                return Content("<script>alert('删除失败');location.href='../../../Manager/AdminsManager/List'</script>");
+                return msg.Show("删除失败", Url.Action("List", "AdminsManager"));
             }
         }
     }

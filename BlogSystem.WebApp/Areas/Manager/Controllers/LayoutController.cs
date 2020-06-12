@@ -5,22 +5,24 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using BlogSystem.IBLL;
-using BlogSystem.WebApp.Areas.Manager.Data.LeftMenu;
+using BlogSystem.WebApp.Areas.Manager.Data.Layout;
 using BlogSystem.WebApp.Filter;
 
 namespace BlogSystem.WebApp.Areas.Manager.Controllers
 {
-    [AdminAuthorize]
+    
     public class LayoutController : Controller
     {
 
         private IAdminsPermissionBll _permissionSvc;
         private ISystemMenuBll _menuSvc;
+        private IAdminsBll _adminsSvc;
 
-        public LayoutController(IAdminsPermissionBll permissionSvc,ISystemMenuBll menuSvc)
+        public LayoutController(IAdminsPermissionBll permissionSvc,ISystemMenuBll menuSvc,IAdminsBll adminsSvc)
         {
             _permissionSvc = permissionSvc;
             _menuSvc = menuSvc;
+            _adminsSvc = adminsSvc;
         }
 
         /// <summary>
@@ -86,6 +88,35 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             }
 
             return Json(list,JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        public async Task<JsonResult> GetUsersInfo()
+        {
+            string account = "";
+            //1. 先去得到我们的登入信息
+            object ob = Session["LoginOk"];
+            if (ob == null)
+            {
+                HttpCookie uCookie = Request.Cookies["LoginOk"];
+                account = uCookie.Value;
+            }
+            else
+            {
+                account = ob.ToString();
+            }
+
+            //2. 得到当前账号下的所有信息
+            var admin = await _adminsSvc.GetAdminsByEmail(account);
+
+            AdminsInfoViewModel aivm = new AdminsInfoViewModel
+            {
+                NickName = admin.NickName,
+                SmallImage = admin.Images
+            };
+
+            return Json(aivm, JsonRequestBehavior.AllowGet);
         }
 
     }
