@@ -174,10 +174,12 @@
     <Compile Include="Areas\Manager\Common\PageConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsPermissionManagerController.cs" />
+    <Compile Include="Areas\Manager\Controllers\CopyrightManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\LayoutController.cs" />
     <Compile Include="Areas\Manager\Controllers\LoginController.cs" />
     <Compile Include="Areas\Manager\Controllers\MainController.cs" />
     <Compile Include="Areas\Manager\Controllers\RolesManagerController.cs" />
+    <Compile Include="Areas\Manager\Controllers\SeoManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\SystemMenuManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\WebMenuManagerController.cs" />
     <Compile Include="Areas\Manager\Data\AdminsPermisson\AddAdminsPermissionViewModel.cs" />
@@ -185,12 +187,16 @@
     <Compile Include="Areas\Manager\Data\Admins\AddAdminsViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\AdminsListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\EditAdminsViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Copyright\CopyrightViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Layout\AdminsInfoViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Layout\LeftMenuListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Login\LoginViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\AddRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\EditRolesViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Roles\RolesListViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Seo\AddSeoViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Seo\EidtSeoViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Seo\SeoListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\AddSystemMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\EditSystemMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\SystemMenu\SystemMenuListViewModel.cs" />
@@ -243,6 +249,10 @@
     <Content Include="Areas\Manager\Views\WebMenuManager\List.cshtml" />
     <Content Include="Areas\Manager\Views\WebMenuManager\Add.cshtml" />
     <Content Include="Areas\Manager\Views\WebMenuManager\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\SeoManager\List.cshtml" />
+    <Content Include="Areas\Manager\Views\SeoManager\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\SeoManager\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\CopyrightManager\List.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -257,6 +267,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Upload\Admins\" />
+    <Folder Include="Upload\Copyright\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogSystem.BLL\BlogSystem.BLL.csproj">

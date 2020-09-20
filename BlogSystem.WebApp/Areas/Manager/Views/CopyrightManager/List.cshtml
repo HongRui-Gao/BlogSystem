@@ -1,0 +1,95 @@
+﻿@model BlogSystem.WebApp.Areas.Manager.Data.Copyright.CopyrightViewModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">编辑版权信息</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Edit", "CopyrightManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(c => c.Id)
+                    <div class="form-group">
+                        <label for="Title">版权名称:</label>
+                        @Html.TextBoxFor(r => r.Title, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Title")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Keyword">版权描述:</label>
+                        @Html.TextBoxFor(r => r.Detail, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Detail")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Description">座机号码:</label>
+                        @Html.TextBoxFor(r => r.Telephone, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Telephone")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="WebMenuId">手机号码:</label>
+                        @Html.TextBoxFor(r => r.Mobile, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Mobile")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="WebMenuId">邮件地址:</label>
+                        @Html.TextBoxFor(r => r.Email, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Email")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="WebMenuId">联系地址:</label>
+                        @Html.TextBoxFor(r => r.Address, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Address")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="WebMenuId">QQ号:</label>
+                        @Html.TextBoxFor(r => r.QQNumber, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("QQNumber")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="WebMenuId">QQ号2:</label>
+                        @Html.TextBoxFor(r => r.QQNumber2, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("QQNumber2")</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="WebMenuId">微信号:</label>
+                        @Html.TextBoxFor(r => r.Wechat, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Wechat")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="WebMenuId">Logo图片:</label>
+                        @if (Model.Logo != null)
+                        {
+                            <img src="~/Upload/Copyright/@Model.Logo" />
+                        }
+                        <input type="file" name="myLogo" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="WebMenuId">图片:</label>
+                        @if (Model.Images != null)
+                        {
+                            <img src="~/Upload/Copyright/@Model.Images" />
+                        }
+                        <input type="file" name="myImages" class="form-control" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">保存</button>
+                        <button class="btn btn-danger" type="reset">重置</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
