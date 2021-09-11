@@ -47,11 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutDal.cs" />
     <Compile Include="AdminsDal.cs" />
     <Compile Include="AdminsPermissionDal.cs" />
+    <Compile Include="BannerDal.cs" />
     <Compile Include="BaseDAL.cs" />
+    <Compile Include="BlogDal.cs" />
+    <Compile Include="BlogPermissionDal.cs" />
+    <Compile Include="CategoryDal.cs" />
+    <Compile Include="ContactDal.cs" />
     <Compile Include="CopyrightDal.cs" />
     <Compile Include="FriendLinkDal.cs" />
+    <Compile Include="MessageDal.cs" />
+    <Compile Include="PhotoWallDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesDal.cs" />
     <Compile Include="SeoDal.cs" />

@@ -51,12 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs" />
     <Compile Include="Admins.cs" />
     <Compile Include="AdminsPermission.cs" />
+    <Compile Include="Banner.cs" />
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Blog.cs" />
+    <Compile Include="BlogPermission.cs" />
     <Compile Include="BlogSystemContext.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Contact.cs" />
     <Compile Include="Copyright.cs" />
     <Compile Include="FriendLink.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Migrations\202003150123324_Initial.cs" />
     <Compile Include="Migrations\202003150123324_Initial.designer.cs">
       <DependentUpon>202003150123324_Initial.cs</DependentUpon>
@@ -73,7 +80,12 @@
     <Compile Include="Migrations\202004250417258_RemoveMenuParentIdNotRequired.designer.cs">
       <DependentUpon>202004250417258_RemoveMenuParentIdNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109110129164_AddFrontEndDb.cs" />
+    <Compile Include="Migrations\202109110129164_AddFrontEndDb.designer.cs">
+      <DependentUpon>202109110129164_AddFrontEndDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PhotoWall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Seo.cs" />
@@ -96,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004250417258_RemoveMenuParentIdNotRequired.resx">
       <DependentUpon>202004250417258_RemoveMenuParentIdNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109110129164_AddFrontEndDb.resx">
+      <DependentUpon>202109110129164_AddFrontEndDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

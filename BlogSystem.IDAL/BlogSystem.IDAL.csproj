@@ -41,11 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAboutDal.cs" />
     <Compile Include="IAdminsPermissionDal.cs" />
     <Compile Include="IAdminsDal.cs" />
+    <Compile Include="IBannerDal.cs" />
     <Compile Include="IBaseDAL.cs" />
+    <Compile Include="IBlogDal.cs" />
+    <Compile Include="IBlogPermissionDal.cs" />
+    <Compile Include="ICategoryDal.cs" />
+    <Compile Include="IContactDal.cs" />
     <Compile Include="ICopyrightDal.cs" />
     <Compile Include="IFriendLinkDal.cs" />
+    <Compile Include="IMessageDal.cs" />
+    <Compile Include="IPhotoWallDal.cs" />
     <Compile Include="IRolesDal.cs" />
     <Compile Include="ISeoDal.cs" />
     <Compile Include="ISystemMenuDal.cs" />

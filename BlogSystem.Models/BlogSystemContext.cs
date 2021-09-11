@@ -26,5 +26,20 @@ namespace BlogSystem.Models
         public virtual DbSet<Seo> Seo { get; set; }
         public virtual DbSet<FriendLink> FriendLink { get; set; }
         public virtual DbSet<Copyright> Copyright { get; set; }
+
+
+        //下面的内容是前台数据库
+
+        public virtual DbSet<Banner> Banner { get; set; }
+        public virtual DbSet<About> About { get; set; }
+        public virtual DbSet<Blog> Blog { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<BlogPermission> BlogPermission { get; set; }
+        public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Message> Message { get; set; }
+        public virtual DbSet<PhotoWall> PhotoWall { get; set; }
+
+
+
     }
 }

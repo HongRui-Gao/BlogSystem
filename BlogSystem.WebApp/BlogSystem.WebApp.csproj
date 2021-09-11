@@ -163,6 +163,33 @@
     <Content Include="Areas\Manager\assets\vendor\toastr\toastr.js" />
     <Content Include="Areas\Manager\assets\vendor\toastr\toastr.min.css" />
     <Content Include="Areas\Manager\assets\vendor\toastr\toastr.min.js" />
+    <Content Include="Contents\css\animate.css" />
+    <Content Include="Contents\css\bootstrap.css" />
+    <Content Include="Contents\css\flexslider.css" />
+    <Content Include="Contents\css\icomoon.css" />
+    <Content Include="Contents\css\style.css" />
+    <Content Include="Contents\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Contents\fonts\icomoon\icomoon.svg" />
+    <Content Include="Contents\images\img-1.jpg" />
+    <Content Include="Contents\images\img-2.jpg" />
+    <Content Include="Contents\images\img-3.jpg" />
+    <Content Include="Contents\images\img-4.jpg" />
+    <Content Include="Contents\images\img-5.jpg" />
+    <Content Include="Contents\images\img-6.jpg" />
+    <Content Include="Contents\images\img_bg_1.jpg" />
+    <Content Include="Contents\images\img_bg_2.jpg" />
+    <Content Include="Contents\images\img_bg_3.jpg" />
+    <Content Include="Contents\images\loc.png" />
+    <Content Include="Contents\js\bootstrap.min.js" />
+    <Content Include="Contents\js\GetMenus.js" />
+    <Content Include="Contents\js\google_map.js" />
+    <Content Include="Contents\js\jquery.easing.1.3.js" />
+    <Content Include="Contents\js\jquery.flexslider-min.js" />
+    <Content Include="Contents\js\jquery.min.js" />
+    <Content Include="Contents\js\jquery.waypoints.min.js" />
+    <Content Include="Contents\js\main.js" />
+    <Content Include="Contents\js\modernizr-2.6.2.min.js" />
+    <Content Include="Contents\js\respond.min.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -204,10 +231,13 @@
     <Compile Include="Areas\Manager\Data\WebMenu\EditWebMenuViewModel.cs" />
     <Compile Include="Areas\Manager\Data\WebMenu\WebMenuListViewModel.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Controllers\FrontEndLayoutController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filter\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\WebMenu\WebMenuListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,7 +283,16 @@
     <Content Include="Areas\Manager\Views\SeoManager\Add.cshtml" />
     <Content Include="Areas\Manager\Views\SeoManager\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\CopyrightManager\List.cshtml" />
+    <Content Include="Contents\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Contents\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Contents\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Contents\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Contents\fonts\icomoon\icomoon.eot" />
+    <Content Include="Contents\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Contents\fonts\icomoon\icomoon.woff" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\frontend_layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -264,10 +303,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manager\Views\Layout\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
     <Folder Include="Upload\Admins\" />
     <Folder Include="Upload\Copyright\" />
+    <Folder Include="Views\FrontEndLayout\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogSystem.BLL\BlogSystem.BLL.csproj">

@@ -41,10 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutDto.cs" />
     <Compile Include="AdminsDto.cs" />
     <Compile Include="AdminsPermissionDto.cs" />
+    <Compile Include="BannerDto.cs" />
+    <Compile Include="BlogDto.cs" />
+    <Compile Include="BlogPermissionDto.cs" />
+    <Compile Include="CategoryDto.cs" />
+    <Compile Include="ContactDto.cs" />
     <Compile Include="CopyrightDto.cs" />
     <Compile Include="FriendLinkDto.cs" />
+    <Compile Include="MessageDto.cs" />
+    <Compile Include="PhotoWallDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesDto.cs" />
     <Compile Include="SeoDto.cs" />
