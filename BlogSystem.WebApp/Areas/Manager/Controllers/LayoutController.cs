@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using BlogSystem.Dtos;
 using BlogSystem.IBLL;
 using BlogSystem.WebApp.Areas.Manager.Data.Layout;
 using BlogSystem.WebApp.Filter;
@@ -50,11 +51,25 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             //3. 得到当前数据库当中所有的系统菜单详情,之后根据上面的系统菜单id进行筛选
             var allMenu = await _menuSvc.GetSystemMenuListByTitle("");
 
-            var menus = (from sm in allMenu
-                    where (from ap in permissions
-                        select ap.SystemMenuId).Contains(sm.Id)
-                    select sm
-                ).ToList();
+            //var menus = (from sm in allMenu
+            //        where (from ap in permissions
+            //            select ap.SystemMenuId).Equals(sm.Id)
+            //        select sm
+            //    ).ToList();
+
+            var menus = new List<SystemMenuDto>();
+            for (int i = 0; i < allMenu.Count; i++)
+            {
+                for (int j = 0; j < permissions.Count; j++)
+                {
+                    if (allMenu[i].Id == permissions[j].SystemMenuId) 
+                    {
+                        menus.Add(allMenu[i]);
+                    }
+                }
+            }
+
+
             //4. 在上面得到所有能看到菜单当中找出一级菜单
             var parents = menus.Where(m => m.ParentId == Guid.Empty).OrderBy(m => m.UpdateTime);
             //5. 得到最后要往界面返回的集合内容
@@ -64,7 +79,9 @@ namespace BlogSystem.WebApp.Areas.Manager.Controllers
             {
                 //1. 通过一级菜单的id查找对应的子级菜单
                 List<LeftMenuListViewModel> sonList = new List<LeftMenuListViewModel>();
-                var sonData = await _menuSvc.GetSystemMenuListByParentId(item.Id);
+                var sonData = from all in menus
+                              where all.ParentId == item.Id
+                              select all;
                 foreach (var sonItem in sonData)
                 {
                     LeftMenuListViewModel son = new LeftMenuListViewModel

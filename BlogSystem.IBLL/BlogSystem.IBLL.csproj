@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IAdminsBll.cs" />
     <Compile Include="IAdminsPermissionBll.cs" />
+    <Compile Include="ICategoryBll.cs" />
     <Compile Include="ICopyrightBll.cs" />
     <Compile Include="IRolesBll.cs" />
     <Compile Include="ISeoBll.cs" />

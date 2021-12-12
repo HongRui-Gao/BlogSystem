@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AdminsBll.cs" />
     <Compile Include="AdminsPermissionBll.cs" />
+    <Compile Include="CategoryBll.cs" />
     <Compile Include="CopyrightBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesBll.cs" />

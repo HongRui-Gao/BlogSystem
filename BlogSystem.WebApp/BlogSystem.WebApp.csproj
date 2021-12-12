@@ -201,6 +201,7 @@
     <Compile Include="Areas\Manager\Common\PageConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\AdminsPermissionManagerController.cs" />
+    <Compile Include="Areas\Manager\Controllers\CategoryManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\CopyrightManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\LayoutController.cs" />
     <Compile Include="Areas\Manager\Controllers\LoginController.cs" />
@@ -214,6 +215,9 @@
     <Compile Include="Areas\Manager\Data\Admins\AddAdminsViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\AdminsListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Admins\EditAdminsViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Category\CategoryAddViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Category\CategoryEditViewModel.cs" />
+    <Compile Include="Areas\Manager\Data\Category\CategoryListViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Copyright\CopyrightViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Layout\AdminsInfoViewModel.cs" />
     <Compile Include="Areas\Manager\Data\Layout\LeftMenuListViewModel.cs" />
@@ -237,6 +241,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category\CateogoryListViewModel.cs" />
     <Compile Include="Models\WebMenu\WebMenuListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -290,6 +295,9 @@
     <Content Include="Contents\fonts\icomoon\icomoon.eot" />
     <Content Include="Contents\fonts\icomoon\icomoon.ttf" />
     <Content Include="Contents\fonts\icomoon\icomoon.woff" />
+    <Content Include="Areas\Manager\Views\CategoryManager\List.cshtml" />
+    <Content Include="Areas\Manager\Views\CategoryManager\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\CategoryManager\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\frontend_layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

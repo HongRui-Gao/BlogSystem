@@ -1,0 +1,48 @@
+﻿@model BlogSystem.WebApp.Areas.Manager.Data.Category.CategoryEditViewModel
+@{
+    ViewBag.Title = "编辑博客文章类别信息";
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">编辑博客文章类别信息</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Edit", "CategoryManager", FormMethod.Post))
+                {
+                    <div>
+                        @Html.HiddenFor(r => r.Id)
+                    </div>
+                    <div class="form-group">
+                        <label for="Title">类别名称:</label>
+                        @Html.TextBoxFor(r => r.Title, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Title")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Title">类别描述:</label>
+                        @Html.TextAreaFor(r => r.Details, new { @class = "form-control" })
+                        <span class="text-danger">@Html.ValidationMessage("Details")</span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">保存</button>
+                        <button class="btn btn-danger" type="reset">重置</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="https://cdn.bootcss.com/jquery-validate/1.19.1/jquery.validate.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js"></script>
+}
+
+

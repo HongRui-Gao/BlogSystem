@@ -4,12 +4,16 @@
     ViewBag.Description = "";
     ViewBag.Keywords = "";
     Layout = "~/Views/Shared/frontend_layout.cshtml";
+
+    List<CateogoryListViewModel> categoryList = ViewBag.CategoryList;
+
 }
+@using BlogSystem.WebApp.Models.Category;
 
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
-            <li style="background-image: url(images/img_bg_1.jpg);">
+            <li style="background-image: url(../../Contents/images/img_bg_1.jpg); ">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -22,7 +26,7 @@
                     </div>
                 </div>
             </li>
-            <li style="background-image: url(images/img_bg_2.jpg);">
+            <li style="background-image: url(../../Contents/images/img_bg_2.jpg);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -35,7 +39,7 @@
                     </div>
                 </div>
             </li>
-            <li style="background-image: url(images/img_bg_3.jpg);">
+            <li style="background-image: url(../../Contents/images/img_bg_3.jpg);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -55,7 +59,24 @@
 <div class="fh5co-narrow-content">
     <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">文章类别</h2>
     <div class="row">
+        @for (var i = 0; i < categoryList.Count; i++) 
+        {
         <div class="col-md-6">
+            <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+                <div class="fh5co-icon">
+                    <i id="cicon_@i"></i>
+                </div>
+                <div class="fh5co-text">
+                    <h3>@categoryList[i].Title</h3>
+                    <p>@categoryList[i].Details </p>
+                </div>
+            </div>
+        </div>
+        
+        }
+
+
+        @*<div class="col-md-6">
             <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
                 <div class="fh5co-icon">
                     <i class="icon-settings"></i>
@@ -99,7 +120,7 @@
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
 <div class="fh5co-narrow-content">
@@ -168,4 +189,22 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    
+    <script>
+
+        $(function ()
+        {
+            $("#cicon_0").addClass("icon-settings");
+            $("#cicon_1").addClass("icon-search4");
+            $("#cicon_2").addClass("icon-paperplane");
+            $("#cicon_3").addClass("icon-params");
+
+        })
+
+
+
+    </script>
+}
 
